@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "PriceTrackerEXT",
+    "version": "1.0",
+    "description": "Track prices and analyze purchase preferences securely.",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "notifications",
+      "scripting",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://www.amazon.com/*",
+      "https://www.flipkart.com/*",
+      "https://www.google.com/search*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.amazon.com/*", "https://www.flipkart.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    }
+  }
+  
